@@ -338,7 +338,7 @@ for (my $s = 0; $s < $largest_col; $s++) {
 		my $lr = ($min_lat + $l * $step_lat) . "-" .
 		    ($min_lat + (($l + 1) * $step_lat)) . $units_lat;
 		my $tr = $s * $step_sec;
-		my $timestamp = $start_time + $s * $step_sec;
+		my $timestamp = ($start_time / $timefactor) + $s * $step_sec;
 		$tr .= "-" . ($s * $step_sec - 1 + $step_sec) if $step_sec > 1;
 		$im->filledRectangle($x1, $y1, $x2, $y2, $color,
 		    'onmouseover="s(' . "'$tr','$lr',$c,$acc,$total,$timestamp" . ')" onmouseout="c()"');
